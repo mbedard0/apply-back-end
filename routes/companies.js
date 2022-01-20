@@ -4,7 +4,9 @@ import { checkAuth } from '../middleware/auth.js'
 
 const router = Router()
 
-/*---------- Protected Routes ----------*/
 router.post('/', companiesCtrl.create)
+router.get('/', companiesCtrl.index)
+
+/*---------- Protected Routes ----------*/
 
 export { router }
