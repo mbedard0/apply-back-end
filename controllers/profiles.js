@@ -9,4 +9,11 @@ function index(req, res) {
   })
 }
 
-export { index }
+function getProfile(req, res){
+  Profile.findById(req.params.id)
+  .then(profile => {
+    res.json(profile)
+  })
+}
+
+export { index, getProfile }
