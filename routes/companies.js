@@ -4,8 +4,9 @@ import { checkAuth } from '../middleware/auth.js'
 
 const router = Router()
 
-router.post('/', companiesCtrl.create)
 router.get('/', companiesCtrl.index)
+router.get('/:id', companiesCtrl.show)
+router.post('/', companiesCtrl.create)
 
 /*---------- Protected Routes ----------*/
 
