@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+import { Profile } from '../models/profile.js'
 
 const SECRET = process.env.SECRET
 
@@ -23,4 +24,11 @@ function checkAuth(req, res, next) {
   return req.user ? next() : res.status(401).json({ msg: 'Not Authorized' })
 }
 
-export { decodeUserFromToken, checkAuth }
+function checkCompanyAuth(req, res, next) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    return profile.status === 'company' ? next() : res.status(401).json({ msg: 'Not Authorized' })
+  })
+}
+
+export { decodeUserFromToken, checkAuth, checkCompanyAuth }
