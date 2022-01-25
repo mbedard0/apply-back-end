@@ -25,8 +25,9 @@ function checkAuth(req, res, next) {
 }
 
 function checkCompanyAuth(req, res, next) {
-  Profile.findById(req.params.id)
+  Profile.findById(req.body.admins)
   .then(profile => {
+    console.log(profile)
     return profile.status === 'company' ? next() : res.status(401).json({ msg: 'Not Authorized' })
   })
 }
