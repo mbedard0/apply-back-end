@@ -20,7 +20,6 @@ function getProfile(req, res) {
   })
 }
 
-// need to fix models and then will refactor this to appropriate code, will combine with getProfile
 function getCompany(req, res) {
   Company.findById(req.params.id)
     .then(company => {

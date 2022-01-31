@@ -6,7 +6,8 @@ const profileSchema = new mongoose.Schema({
   picture: String,
   resume: String,
   status: {type: String, enum: ['individual', 'company'], default: 'individual'},
-  company: [{type: mongoose.Schema.Types.ObjectId, ref: "Company"}]
+  company: [{type: mongoose.Schema.Types.ObjectId, ref: "Company"}],
+  reviews: [{type: mongoose.Schema.Types.ObjectId, ref: "Review"}]
 },{
     timestamps: true,
 })
