@@ -12,12 +12,12 @@ function index(req, res) {
 
 function getProfile(req, res) {
   User.findById(req.params.id)
-  .then(user => {
-    Profile.findById(user.profile)
-    .then(profile => {
-      res.json(profile)
+    .then(user => {
+      Profile.findById(user.profile)
+        .then(profile => {
+          res.json(profile)
+        })
     })
-  })
 }
 
 function getCompany(req, res) {
@@ -27,4 +27,12 @@ function getCompany(req, res) {
     })
 }
 
-export { index, getProfile, getCompany }
+function getAllCompanies(req, res) {
+  Company.find({admins: req.params.id})
+    .then(companies => {
+      console.log(companies)
+      res.json(companies)
+    })
+}
+
+export { index, getProfile, getCompany, getAllCompanies }
