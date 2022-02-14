@@ -27,12 +27,12 @@ function getCompany(req, res) {
     })
 }
 
-function getAllCompanies(req, res) {
-  Company.find({admins: req.params.id})
-    .then(companies => {
-      console.log(companies)
-      res.json(companies)
-    })
-}
+// function getAllCompanies(req, res) {
+//   Company.find({admins: req.params.id})
+//     .then(companies => {
+//       console.log(companies)
+//       res.json(companies)
+//     })
+// }
 
-export { index, getProfile, getCompany, getAllCompanies }
+export { index, getProfile, getCompany }
